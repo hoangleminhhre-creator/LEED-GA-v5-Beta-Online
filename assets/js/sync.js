@@ -13,7 +13,7 @@ function canonicalKey(k){return configuredPrefix+k}
 function localLogicalSnapshot(){var d={},i,k,l;for(i=0;i<localStorage.length;i++){k=localStorage.key(i);if(k===tombstoneKey)continue;l=logicalKey(k);if(l!==null)d[l]=localStorage.getItem(k)}return d}
 function cloudLogicalSnapshot(d){var out={},k,l;if(!d)return out;for(k in d)if(Object.prototype.hasOwnProperty.call(d,k)){l=logicalKey(k);if(l===null)l=k;out[l]=d[k]}return out}
 function canonicalCloudData(d){var out={},k;for(k in d)if(Object.prototype.hasOwnProperty.call(d,k))out[canonicalKey(k)]=d[k];return out}
-function restore(d,deleted){var k;if(!d)return;for(k in d)if(Object.prototype.hasOwnProperty.call(d,k)&&!(deleted&&deleted[k]))localStorage.setItem(canonicalKey(k),d[k]);if(deleted)for(k in deleted)if(deleted[k])localStorage.removeItem(canonicalKey(k))}
+function restore(d,deleted){var k;if(!d)d={};for(k in d)if(Object.prototype.hasOwnProperty.call(d,k))localStorage.setItem(canonicalKey(k),d[k]);if(deleted)for(k in deleted)if(deleted[k]&&!Object.prototype.hasOwnProperty.call(d,k))localStorage.removeItem(canonicalKey(k))}
 function answered(v){var x=parse(v,{}),a=x.answers||[],n=0,i;for(i=0;i<a.length;i++)if(a[i]!==null&&a[i]!==undefined)n++;return n}
 function progressRank(v){var x=parse(v,{});return {updatedAt:Number(x.updatedAt||x.startedAt||0),answered:answered(v)}}
 function chooseProgress(a,b){var x=progressRank(a),y=progressRank(b);if(y.updatedAt!==x.updatedAt)return y.updatedAt>x.updatedAt?b:a;return y.answered>x.answered?b:a}
