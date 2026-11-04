@@ -109,3 +109,7 @@
 /* Group history by test and mode - 2026-11-04 */
 .history-group{border:1px solid #dbe3ee;border-radius:12px;margin:12px 0;overflow:hidden;background:#fff}.history-group-toggle{width:100%;display:flex;align-items:center;gap:11px;border:0;background:#f8fafc;padding:14px 16px;cursor:pointer;text-align:left;color:#172033}.history-group-toggle:hover{background:#eef4ff}.history-group-arrow{width:20px;color:#2563eb;font-size:15px}.history-group-name{font-size:16px;font-weight:800;flex:1}.history-group-count{background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:5px 11px;font-size:13px;font-weight:800}.history-group-items{padding:4px 10px 10px}.history-group-items.hidden{display:none}.history-group .history-item{margin:8px 0}.history-group .history-item:first-child{margin-top:6px}
 @media(max-width:560px){.history-group-toggle{padding:12px}.history-group-items{padding:3px 6px 8px}.history-group-count{padding:4px 8px}}
+
+/* Collapse or expand all history groups - 2026-11-04 */
+.history-collapse-all-btn{border-color:#bfdbfe!important;color:#1d4ed8!important;background:#eff6ff!important;font-weight:800}.history-collapse-all-btn:hover{background:#dbeafe!important}.history-collapse-all-btn:disabled{opacity:.45}
+@media(max-width:560px){.history-collapse-all-btn{flex-basis:100%!important}}
