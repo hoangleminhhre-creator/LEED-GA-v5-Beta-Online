@@ -114,28 +114,36 @@
 .history-collapse-all-btn{border-color:#bfdbfe!important;color:#1d4ed8!important;background:#eff6ff!important;font-weight:800}.history-collapse-all-btn:hover{background:#dbeafe!important}.history-collapse-all-btn:disabled{opacity:.45}
 @media(max-width:560px){.history-collapse-all-btn{flex-basis:100%!important}}
 
-/* Fixed long-question frame - 2026-11-05
-   CSS-only safeguard: keeps the existing HTML and JavaScript behavior unchanged. */
-.question-box{
-  overflow-anchor:none;
-}
+/* v7.5.7 - Long question layout without question scrollbar.
+   Keep the original font size. Reserve vertical space before answers and
+   let exceptionally long questions expand the page naturally. */
 .question-title{
-  box-sizing:border-box;
-  overflow-y:auto;
-  overflow-x:hidden;
-  overscroll-behavior:contain;
-  -webkit-overflow-scrolling:touch;
+  flex:0 0 auto!important;
+  width:100%;
+  height:auto!important;
+  min-height:180px!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding-right:0!important;
+  scrollbar-gutter:auto!important;
+  font-size:1.12rem!important;
+  line-height:1.5!important;
 }
+.question-title::-webkit-scrollbar{display:none!important}
 #options{
-  overscroll-behavior:contain;
-  -webkit-overflow-scrolling:touch;
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:360px!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding-right:0!important;
+  scrollbar-gutter:auto!important;
 }
-
-
-/* Long question: fixed frame, no internal scrollbar. Text scales only when needed. */
-.question-title{
-  overflow:hidden!important;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
+@media(max-width:760px){
+  .question-title{
+    min-height:220px!important;
+    font-size:1.12rem!important;
+    line-height:1.5!important;
+  }
+  #options{min-height:390px!important}
 }
-.question-title::-webkit-scrollbar{display:none;width:0;height:0}
