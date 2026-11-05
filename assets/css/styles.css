@@ -113,3 +113,20 @@
 /* Collapse or expand all history groups - 2026-11-04 */
 .history-collapse-all-btn{border-color:#bfdbfe!important;color:#1d4ed8!important;background:#eff6ff!important;font-weight:800}.history-collapse-all-btn:hover{background:#dbeafe!important}.history-collapse-all-btn:disabled{opacity:.45}
 @media(max-width:560px){.history-collapse-all-btn{flex-basis:100%!important}}
+
+/* Fixed long-question frame - 2026-11-05
+   CSS-only safeguard: keeps the existing HTML and JavaScript behavior unchanged. */
+.question-box{
+  overflow-anchor:none;
+}
+.question-title{
+  box-sizing:border-box;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+#options{
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
