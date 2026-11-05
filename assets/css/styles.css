@@ -130,3 +130,12 @@
   overscroll-behavior:contain;
   -webkit-overflow-scrolling:touch;
 }
+
+
+/* Long question: fixed frame, no internal scrollbar. Text scales only when needed. */
+.question-title{
+  overflow:hidden!important;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.question-title::-webkit-scrollbar{display:none;width:0;height:0}
